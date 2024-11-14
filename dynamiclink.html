@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Redirect</title>
+    <script>
+        // Function to redirect based on device type
+        function redirectToAppStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS Device - Redirect to App Store
+                window.location.href = "https://apps.apple.com/app/id6502913644";
+            } else if (/android/i.test(userAgent)) {
+                // Android Device - Redirect to Google Play Store
+                window.location.href = "https://play.google.com/store/apps/details?id=com.rrabbit.rrabbit_android";
+            } else {
+                // Optional: Fallback URL for non-mobile devices or unsupported platforms
+                window.location.href = "https://rabbitinvest.com";
+            }
+        }
+
+        // Run the redirect function when the page loads
+        window.onload = redirectToAppStore;
+    </script>
+</head>
+<body>
+    <!-- Content here if needed; the user will be redirected automatically on page load -->
+</body>
+</html>
+
